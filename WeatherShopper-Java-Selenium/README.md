@@ -101,28 +101,11 @@ private static final String BROWSER = "chrome"; // chrome, firefox, edge
 private static final String APP_URL = "https://weathershopper.pythonanywhere.com/";
 ```
 
-## Running Tests
-
-### Method 1: Using Maven Command
-```bash
-mvn clean test
-```
-
-### Method 2: Using TestNG XML
-```bash
-mvn test -DsuiteXmlFile=src/test/resources/testng.xml
-```
-
 ### Method 3: From IDE (IntelliJ IDEA / Eclipse)
 1. Right-click on `WeatherShopperTest.java`
 2. Select "Run 'WeatherShopperTest'"
 
 Or right-click on `testng.xml` and select "Run"
-
-### Method 4: Run Specific Test
-```bash
-mvn test -Dtest=WeatherShopperTest#testWeatherShopperCompleteFlow
-```
 
 ## Test Execution Flow
 
@@ -223,26 +206,6 @@ Enable specific tests in `WeatherShopperTest.java`:
 public void testMoisturizersOnly() { ... }
 ```
 
-## Troubleshooting
-
-### Issue: Browser driver not found
-**Solution**: WebDriverManager should handle this automatically. If issues persist:
-```bash
-mvn clean install -U
-```
-
-### Issue: Element not found
-**Solution**: Check if the application is loaded properly. Increase wait timeout in `BasePage.java`:
-```java
-private static final int DEFAULT_TIMEOUT = 20; // Increase from 15
-```
-
-### Issue: Payment not completing
-**Solution**: The Stripe iframe may have changed. Update locators in `PaymentPage.java`
-
-### Issue: Tests fail due to temperature
-**Solution**: The application temperature changes. Ensure it's either < 19°C or > 34°C
-
 ## Best Practices Implemented
 
 1. **Page Object Model**: Separation of test logic and page elements
@@ -304,14 +267,11 @@ For issues or questions:
 3. Verify element locators are current
 4. Ensure application is accessible
 
-## License
-
-This project is created for educational and testing purposes.
-
 ## Author
 
-Created for Weather Shopper automation testing demonstration.
+Created for Weather Shopper automation testing demonstration by Awab Tanveer.
 
 ---
 
 **Note**: This project uses Stripe test card numbers. Do not use real payment information.
+
